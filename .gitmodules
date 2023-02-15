@@ -1,0 +1,3 @@
+[submodule "Assets/WiruLib"]
+	path = Assets/WiruLib
+	url = https://ggracia10@bitbucket.org/ggracia10/wirulib.git
