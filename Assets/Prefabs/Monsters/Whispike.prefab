@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -150268016, guid: 9bcfa2ab26db12e4abcb74de2382674b, type: 3}
+  m_Sprite: {fileID: -595768210, guid: 1758c0c74e29afb469b4bb55486351c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 3317343501454194680}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ec777fed9946363479af2bbc7e482cf2, type: 2}
+  m_Controller: {fileID: 22100000, guid: 61f2a2a1e60289c48bf1113ad94fab0f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 8550496459252956072}
   - component: {fileID: 8673612244045821824}
   m_Layer: 0
-  m_Name: Slaaim
+  m_Name: Whispike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyInfo:
-    specie: 0
-    enemyInputSize: 4
+    specie: 1
+    enemyInputSize: 6
   enemyInputs: 
   playerID: -1
   currentInputIndex: 

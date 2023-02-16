@@ -12,6 +12,8 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Vector3 offset = new Vector3(-2 * transform.localScale.x, 0, -0.5f);
+        spawnPosition = transform.position + offset;
         SpawnEnemy();
     }
 
