@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4420398508505224960, guid: 1fc511925af0892448a10ab0458427fa, type: 3}
+      propertyPath: rewiredPrefab
+      value: 
+      objectReference: {fileID: 595824197698472552, guid: b12b90fa4337cf04fa39f160c31236d1, type: 3}
     - target: {fileID: 4420398508505224961, guid: 1fc511925af0892448a10ab0458427fa, type: 3}
       propertyPath: m_Name
       value: InitSingletons
