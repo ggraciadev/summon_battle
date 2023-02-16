@@ -1,34 +1,13 @@
 {
   "dependencies": {
-    "com.unity.2d.animation": {
-      "version": "7.0.9",
+    "com.deltation.toon-shader": {
+      "version": "https://github.com/Delt06/urp-toon-shader.git?path=Packages/com.deltation.toon-shader",
       "depth": 0,
-      "source": "registry",
+      "source": "git",
       "dependencies": {
-        "com.unity.2d.common": "6.0.6",
-        "com.unity.2d.sprite": "1.0.0",
-        "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.uielements": "1.0.0"
+        "com.unity.render-pipelines.universal": "12.1.6"
       },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.2d.common": {
-      "version": "6.0.6",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.2d.sprite": "1.0.0",
-        "com.unity.mathematics": "1.1.0",
-        "com.unity.modules.uielements": "1.0.0",
-        "com.unity.burst": "1.5.1"
-      },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.2d.sprite": {
-      "version": "1.0.0",
-      "depth": 1,
-      "source": "builtin",
-      "dependencies": {}
+      "hash": "231de5492defce2abda3e6497942193b51538a10"
     },
     "com.unity.burst": {
       "version": "1.8.2",
