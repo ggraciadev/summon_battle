@@ -57,6 +57,9 @@ public class Player : MonoBehaviour
         else {
             gameObject.AddComponent<PlayerAIController>();
         }
+        if(playerInfo.playerID == 0) {
+            transform.localScale = new Vector3(-1,1,1);
+        }
         GetComponent<EnemySpawner>().SetPlayerID(playerInfo.playerID);
     }
 

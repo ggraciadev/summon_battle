@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9bcfa2ab26db12e4abcb74de2382674b
+guid: a8b80d8056c7cde408f410b5b6d6a421
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -105,43 +105,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slaaim_sprites_0
+      name: Kara_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 512
-        height: 512
+        y: 559
+        width: 450
+        height: 559
       alignment: 9
-      pivot: {x: 0.5, y: 0.14}
+      pivot: {x: 0.55, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 320fb7419a4374d419bb3c9ad4941618
-      internalID: 38549526
+      spriteID: 58fce52da349e2649a106a30a7a548f1
+      internalID: -787443100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slaaim_sprites_1
+      name: Kara_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 505
-        y: 0
-        width: 512
-        height: 512
+        x: 450
+        y: 559
+        width: 450
+        height: 559
       alignment: 9
-      pivot: {x: 0.5, y: 0.14}
+      pivot: {x: 0.55, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f517eeae88e21de4a91951f01589ddaf
-      internalID: -150268016
+      spriteID: d9a54ad9f8fa39148a7807fd2f735f95
+      internalID: -1785809876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kara_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 450
+        height: 559
+      alignment: 9
+      pivot: {x: 0.55, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c6c75ebecdcb742b1bd2d64eecce27
+      internalID: -947340664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kara_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 450
+        height: 559
+      alignment: 9
+      pivot: {x: 0.55, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 887ccbb09f882924392210627ef369b2
+      internalID: 1150368657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kara_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 450
+        height: 559
+      alignment: 9
+      pivot: {x: 0.55, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc2900b35500554e822ada189cab2c8
+      internalID: 744880493
       vertices: []
       indices: 
       edges: []
@@ -149,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 55ed514b88e22e44ab294f4c983dcfa6
+    spriteID: 67e1689e9d5f3fa4e8b7f9432fd7bcc4
     internalID: 0
     vertices: []
     indices: 
@@ -157,8 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      slaaim_sprites_1: -150268016
-      slaaim_sprites_0: 38549526
+      Kara_spritesheet_1: -1785809876
+      Kara_spritesheet_2: -947340664
+      Kara_spritesheet_3: 1150368657
+      Kara_spritesheet_4: 744880493
+      Kara_spritesheet_0: -787443100
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

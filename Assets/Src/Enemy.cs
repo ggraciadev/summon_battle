@@ -28,12 +28,15 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponentInChildren<Animator>();
+        sprite = anim.gameObject.GetComponent<SpriteRenderer>();
         for(int i = 0; i < enemyInfo.enemyInputSize; ++i) {
             enemyInputs.Add((EnemyInputs)Random.Range(0, 4));
         }
         StartCoroutine(SpawnAnim());
+        if(transform.position.x < 0) {
+            transform.localScale = new Vector3(-1,1,1);
+        }
     }
 
     public void InitEnemy(int pID) {

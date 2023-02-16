@@ -10,7 +10,7 @@ public class GameManager : BaseGameManager<GameManager>
     [SerializeField] List<Player> playerInstances;
     [SerializeField] List<PlayerInfo> playersInfo;
 
-    public void InitGameScene() {
+    public void InitGameScene(GameObject[] playersSpawnPoint) {
         if(playerInstances != null) {
             playerInstances.Clear();
         }
@@ -18,7 +18,7 @@ public class GameManager : BaseGameManager<GameManager>
             playerInstances = new List<Player>();
         }
         for(int i = 0; i < playersNum; ++i) {
-            GameObject temp = Instantiate(playerClass, Vector3.zero, Quaternion.Euler(0,0,0));
+            GameObject temp = Instantiate(playerClass, playersSpawnPoint[i].transform.localPosition, Quaternion.Euler(0,0,0));
             playerInstances.Add(temp.GetComponent<Player>());
             playerInstances[i].SetPlayerInfo(playersInfo[i]);
         }

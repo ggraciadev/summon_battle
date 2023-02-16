@@ -6,6 +6,7 @@ using WiruLib;
 public class InitGame : MonoBehaviour
 {
     [SerializeField] GameObject playerClass;
+    [SerializeField] GameObject[] playerSpawnPoint;
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,6 +18,6 @@ public class InitGame : MonoBehaviour
 
         //REAL
         GameManager.Instance.SetPlayerClass(playerClass);
-        GameManager.Instance.InitGameScene();
+        GameManager.Instance.InitGameScene(playerSpawnPoint);
     }
 }
