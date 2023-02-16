@@ -1,30 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public enum EnemyInputs {UP_INPUT, DOWN_INPUT, RIGHT_INPUT, LEFT_INPUT};
+public enum EnemySpecie {SLAAIM, WHISPIKE, DOLLAHAN, HOMMUNCULUS};
+
+[System.Serializable]
+public struct EnemyInfo {
+    public EnemySpecie specie;
+    public int enemyInputSize;
+
+};
 
 public class Enemy : MonoBehaviour
 {
-    public enum EnemyInputs {UP_INPUT, DOWN_INPUT, RIGHT_INPUT, LEFT_INPUT};
+    [SerializeField] EnemyInfo enemyInfo;
 
-    [SerializeField] int enemyInputSize;
     [SerializeField] List<EnemyInputs> enemyInputs;
 
     [SerializeField] int playerID = -1;
     [SerializeField] List<int> currentInputIndex;
 
+    [SerializeField] EnemySpawner spawner;
+    [SerializeField] Animator anim;
+    [SerializeField] SpriteRenderer sprite;
+    [SerializeField] bool spawned;
+
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < enemyInputSize; ++i) {
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+        for(int i = 0; i < enemyInfo.enemyInputSize; ++i) {
             enemyInputs.Add((EnemyInputs)Random.Range(0, 4));
         }
+        StartCoroutine(SpawnAnim());
     }
 
-    void InitEnemy(int playerSize, int pID) {
+    public void InitEnemy(int pID) {
         playerID = pID;
-        for(int i = 0; i < playerSize; ++i) {
+        int size = GameManager.Instance.GetPlayersNum();
+        for(int i = 0; i < size; ++i) {
             currentInputIndex.Add(0);
         }
+    }
+    public EnemyInfo GetEnemyInfo() {
+        return enemyInfo;
+    }
+
+    public void SetSpawner(EnemySpawner s) {
+        spawner = s;
     }
 
     void ResetCorrectInput(int pID) {
@@ -32,7 +56,7 @@ public class Enemy : MonoBehaviour
     }
 
     public bool AddPlayerInput(EnemyInputs input, int pID) {
-        if(playerID != -1 && playerID != pID) {
+        if(!spawned || (playerID != -1 && playerID != pID)) {
             return false;
         }
         
@@ -42,6 +66,45 @@ public class Enemy : MonoBehaviour
         else {
             ResetCorrectInput(pID);
         }
-        return currentInputIndex[pID] == enemyInputSize;
+        if(currentInputIndex[pID] == enemyInfo.enemyInputSize) {
+            StartCoroutine(RevivieAnim());
+        }
+        return currentInputIndex[pID] == enemyInfo.enemyInputSize;
+    }
+
+    public void SequenceComplete() {
+        spawner.SpawnEnemy();
+        Destroy(gameObject);
+    }
+    
+    void OnSpawned() {
+        spawned = true;
+        //meter la UI
+    }
+
+    IEnumerator RevivieAnim() {
+        //mandar trigger al animator
+        anim.SetTrigger("Revive");
+        yield return new WaitForSeconds(0.2f);
+        float animTime = 0.7f;
+        float maxAnimTime = 0.7f;
+        while(animTime > 0) {
+            animTime -= Time.deltaTime;
+            sprite.color = new Color(1,1,1,Mathf.Max(animTime / maxAnimTime, 0));
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.2f);
+        SequenceComplete();
+    }
+
+    IEnumerator SpawnAnim() {
+        float animTime = 0;
+        float maxAnimTime = 0.7f;
+        while(animTime < maxAnimTime) {
+            animTime += Time.deltaTime;
+            sprite.color = new Color(1,1,1,Mathf.Min(animTime / maxAnimTime, 1));
+            yield return null;
+        }
+        OnSpawned();
     }
 }

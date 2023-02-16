@@ -21,16 +21,16 @@ public class PlayerInputController : MonoBehaviour
     void Update()
     {
         if(InputManager.Instance.GetButtonDown("Up", controllerID)) {
-            playerInstance.SendInput(Enemy.EnemyInputs.UP_INPUT);
+            playerInstance.SendInput(EnemyInputs.UP_INPUT);
         }
         if(InputManager.Instance.GetButtonDown("Down", controllerID)) {
-            playerInstance.SendInput(Enemy.EnemyInputs.DOWN_INPUT);
+            playerInstance.SendInput(EnemyInputs.DOWN_INPUT);
         }
         if(InputManager.Instance.GetButtonDown("Left", controllerID)) {
-            playerInstance.SendInput(Enemy.EnemyInputs.LEFT_INPUT);
+            playerInstance.SendInput(EnemyInputs.LEFT_INPUT);
         }
         if(InputManager.Instance.GetButtonDown("Right", controllerID)) {
-            playerInstance.SendInput(Enemy.EnemyInputs.RIGHT_INPUT);
+            playerInstance.SendInput(EnemyInputs.RIGHT_INPUT);
         }
     }
 }

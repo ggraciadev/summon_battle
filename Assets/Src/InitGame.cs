@@ -7,7 +7,7 @@ public class InitGame : MonoBehaviour
 {
     [SerializeField] GameObject playerClass;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //TESTING
         List<PlayerInfo> pInfo = new List<PlayerInfo>();

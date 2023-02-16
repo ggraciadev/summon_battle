@@ -41,11 +41,12 @@ public class Player : MonoBehaviour
 {
     [SerializeField] protected Enemy currentEnemy;
     [SerializeField] protected PlayerInfo playerInfo;
+    [SerializeField] List<EnemyInfo> enemiesRevived;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemiesRevived = new List<EnemyInfo>();
     }
 
     public void SetPlayerInfo(PlayerInfo pInfo) {
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour
         else {
             gameObject.AddComponent<PlayerAIController>();
         }
+        GetComponent<EnemySpawner>().SetPlayerID(playerInfo.playerID);
     }
 
     public void AssignEnemy(Enemy e) {
@@ -72,9 +74,12 @@ public class Player : MonoBehaviour
         return playerInfo.controllerID;
     }
 
-    public void SendInput(Enemy.EnemyInputs input) {
+    public void SendInput(EnemyInputs input) {
         Debug.Log("Player " + playerInfo.playerID + " input: " + input);
         if(currentEnemy == null) { return; }
-        currentEnemy.AddPlayerInput(input, playerInfo.playerID);
+        if(currentEnemy.AddPlayerInput(input, playerInfo.playerID)) {
+            //anim de revivir
+            enemiesRevived.Add(currentEnemy.GetEnemyInfo());
+        }
     }
 }
