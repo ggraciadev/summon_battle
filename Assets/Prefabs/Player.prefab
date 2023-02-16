@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &135627179709536700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8816699717251461065}
+  - component: {fileID: 2134721598774891402}
+  - component: {fileID: 7723199534865231666}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8816699717251461065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135627179709536700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30.237139, y: 3.957757, z: 8.689003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2134721598774891402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135627179709536700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f65bf5b1e5f3db4a8528f191a7c4c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEnemy: {fileID: 0}
+  playerInfo:
+    character: 0
+    type: 0
+    playerID: 0
+    controllerID: 0
+--- !u!114 &7723199534865231666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135627179709536700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2a70373d5711c4eb322e55aa5dce9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyClasses:
+  - {fileID: 3980221130605239225, guid: 2ea2def9252191e4e92f6528ac295f7d, type: 3}
+  - {fileID: 3980221130605239225, guid: 2ea2def9252191e4e92f6528ac295f7d, type: 3}
+  - {fileID: 3980221130605239225, guid: 2ea2def9252191e4e92f6528ac295f7d, type: 3}
+  - {fileID: 3980221130605239225, guid: 2ea2def9252191e4e92f6528ac295f7d, type: 3}
+  playerID: 0
+  spawnPosition: {x: 0, y: 0, z: 0}
