@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1758c0c74e29afb469b4bb55486351c1
+guid: c98610fd36d10f942827483b0b09fea9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 130
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,64 +105,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Whispike_spritesheet_0
+      name: Tama_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 416
-        width: 450
-        height: 416
+        x: 25
+        y: 483
+        width: 320
+        height: 387
       alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+      pivot: {x: 0.58, y: 0.015}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 991a5c515e64b204fa31e2f9da463823
-      internalID: -595768210
+      spriteID: ff0de1fe259c7b749b376f86a22c55a6
+      internalID: -1635550802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Whispike_spritesheet_1
+      name: Tama_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 450
-        y: 416
-        width: 450
-        height: 416
+        x: 302
+        y: 470
+        width: 320
+        height: 404
       alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      pivot: {x: 0.58, y: 0.05}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0cfc1b6e6894624097b4da8231409b6
-      internalID: 24930667
+      spriteID: ce2bf1b0101fb554093d5cafe75679f6
+      internalID: -909173301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Whispike_spritesheet_2
+      name: Tama_spritesheet_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 450
-        height: 416
+        y: 38
+        width: 306
+        height: 440
       alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+      pivot: {x: 0.58, y: 0.04}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a56e2694e320d334a9b6ce228b5cb928
-      internalID: 709587286
+      spriteID: 35b7e191406b27b48af5facef54a8def
+      internalID: 2127894252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tama_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 38
+        width: 320
+        height: 404
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 685ae9bd3f3f3044bb2140da82d08295
+      internalID: 2004357778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tama_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 38
+        width: 320
+        height: 404
+      alignment: 9
+      pivot: {x: 0.45, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0bbda0221e199e4aa3b856ce8cbbf65
+      internalID: -447720644
       vertices: []
       indices: 
       edges: []
@@ -170,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3743397b139951745b7128ef44383c63
+    spriteID: e2a0850bf5a5f28479108979938648fc
     internalID: 0
     vertices: []
     indices: 
@@ -178,9 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Whispike_spritesheet_2: 709587286
-      Whispike_spritesheet_1: 24930667
-      Whispike_spritesheet_0: -595768210
+      Tama_spritesheet_2: 2127894252
+      Tama_spritesheet_1: -909173301
+      Tama_spritesheet_4: -447720644
+      Tama_spritesheet_3: 2004357778
+      Tama_spritesheet_0: -1635550802
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
