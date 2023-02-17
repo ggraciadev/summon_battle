@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
     public void SendInput(EnemyInputs input) {
         Debug.Log("Player " + playerInfo.playerID + " input: " + input);
         if(currentEnemy == null) { return; }
-        if(currentEnemy.AddPlayerInput(input, playerInfo.playerID)) {
+        if(currentEnemy.AddPlayerInput(input, playerInfo)) {
             //anim de revivir
             enemiesRevived.Add(currentEnemy.GetEnemyInfo());
         }
