@@ -53,6 +53,7 @@ MonoBehaviour:
     type: 0
     playerID: 0
     controllerID: 0
+    score: 0
   enemiesRevived: []
   anim: {fileID: 0}
 --- !u!114 &7723199534865231666
@@ -69,7 +70,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyClasses:
   - {fileID: 3980221130605239225, guid: 2ea2def9252191e4e92f6528ac295f7d, type: 3}
+  - {fileID: 3980221130605239225, guid: 2ea2def9252191e4e92f6528ac295f7d, type: 3}
   - {fileID: 3980221130605239225, guid: a7d10abb55624994bbf8fb34f27cb6da, type: 3}
+  - {fileID: 3980221130605239225, guid: 2ea2def9252191e4e92f6528ac295f7d, type: 3}
+  - {fileID: 3980221130605239225, guid: 76b433be5f8d7054e967f44aa45a6a0f, type: 3}
   - {fileID: 3980221130605239225, guid: 2ea2def9252191e4e92f6528ac295f7d, type: 3}
   - {fileID: 3980221130605239225, guid: 2ea2def9252191e4e92f6528ac295f7d, type: 3}
   playerID: 0

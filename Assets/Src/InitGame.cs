@@ -10,10 +10,13 @@ public class InitGame : MonoBehaviour
     [SerializeField] GameObject[] playerSpawnPoint;
     [SerializeField] float timeLeft;
     [SerializeField] TMPro.TextMeshProUGUI timeText;
-    [SerializeField] Image startMenuPanel;
+    [SerializeField] CanvasGroup startMenuPanel;
+    [SerializeField] CanvasGroup endMenuPanel;
     [SerializeField] bool canGetStartInput;
     [SerializeField] float fadeMenuTime;
     [SerializeField] float currentFadeMenuTime;
+    [SerializeField] GameObject finishAnimObject;
+    [SerializeField] Sprite[] winnerPoseSprite;
 
 
     // Start is called before the first frame update
@@ -23,7 +26,7 @@ public class InitGame : MonoBehaviour
         pInfo.Add(new PlayerInfo(PlayerCharacter.Kara, PlayerType.Controller));
         pInfo.Add(new PlayerInfo(PlayerCharacter.Tama, PlayerType.Controller));
         GameManager.Instance.SetGamePlayers(pInfo);
-        GameManager.Instance.SetGameTime(120);
+        GameManager.Instance.SetGameTime(10);
         GameManager.Instance.SetGameStopped(true);
 
         timeText = GameObject.Find("TimeText").GetComponent<TMPro.TextMeshProUGUI>();
@@ -31,12 +34,17 @@ public class InitGame : MonoBehaviour
         timeText.SetText(GetTimeText(timeLeft));
 
         timeText.enabled = false;
-        startMenuPanel = GameObject.Find("StartMenu").GetComponent<Image>();
+        startMenuPanel = GameObject.Find("StartMenu").GetComponent<CanvasGroup>();
+        endMenuPanel = GameObject.Find("WinMenu").GetComponent<CanvasGroup>();
+        
+        //endMenuPanel.enabled = false;
         canGetStartInput = false;
     }
 
     void Start() {
         InputManager.Instance.AddPlayer(0);
+        endMenuPanel.alpha = 0;
+        endMenuPanel.interactable = false;
         StartCoroutine(OpenStartMenu());
     }
 
@@ -64,6 +72,7 @@ public class InitGame : MonoBehaviour
                 if(timeLeft < 0) {
                     timeLeft = 0;
                     GameManager.Instance.SetGameStopped(true);
+                    StartCoroutine(FinishAnimCor());
                 }
             }
         }
@@ -74,25 +83,45 @@ public class InitGame : MonoBehaviour
         }
     }
 
-
     IEnumerator OpenStartMenu() {
         startMenuPanel.enabled = true;
         while(currentFadeMenuTime < fadeMenuTime) {
             currentFadeMenuTime = Mathf.Min(1, currentFadeMenuTime + Time.deltaTime);
-            startMenuPanel.color = new Color(1,1,1,currentFadeMenuTime / fadeMenuTime);
+            startMenuPanel.alpha = currentFadeMenuTime / fadeMenuTime;
             yield return null;
         }
         canGetStartInput = true;
     }
 
     IEnumerator CloseStartMenu() {
-        Debug.Log("Closing menu");
+        canGetStartInput = false;
         while(currentFadeMenuTime > 0) {
             currentFadeMenuTime = Mathf.Max(0, currentFadeMenuTime - Time.deltaTime);
-            startMenuPanel.color = new Color(1,1,1, currentFadeMenuTime / fadeMenuTime);
+            startMenuPanel.alpha = currentFadeMenuTime / fadeMenuTime;
             yield return null;
         }
-        startMenuPanel.enabled = false;
+        startMenuPanel.interactable = false;
         InitGameScene();
+    }
+
+    IEnumerator FinishAnimCor() {
+        GameObject anim = Instantiate(finishAnimObject, Vector3.zero, Quaternion.Euler(0,0,0));
+        yield return new WaitForSeconds(4);
+        StartCoroutine(OpenFinishMenu());
+        yield return null;
+    }
+
+    IEnumerator OpenFinishMenu() {
+        //meter info del player ganador
+        PlayerInfo info = GameManager.Instance.GetWinnerPlayerInfo();
+        GameObject.Find("PlayerName").GetComponent<TMPro.TextMeshProUGUI>().SetText(info.character.ToString());
+        GameObject.Find("PlayerSprite").GetComponent<Image>().sprite = winnerPoseSprite[(int)info.character];
+        endMenuPanel.enabled = true;
+        currentFadeMenuTime = 0;
+        while(currentFadeMenuTime < fadeMenuTime) {
+            currentFadeMenuTime = Mathf.Min(1, currentFadeMenuTime + Time.deltaTime);
+            endMenuPanel.alpha = currentFadeMenuTime / fadeMenuTime;
+            yield return null;
+        }
     }
 }

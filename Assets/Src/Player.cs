@@ -12,12 +12,14 @@ public struct PlayerInfo {
     public PlayerType type;
     public int playerID;
     public int controllerID;
+    public int score;
 
     public PlayerInfo(PlayerCharacter c, PlayerType t, int pid = -1, int cid = -1) {
         character = c;
         type = t;
         playerID = pid;
         controllerID = cid;
+        score = 0;
     }
 
     public void SetPlayerCharacter(PlayerCharacter pc) {
@@ -94,6 +96,8 @@ public class Player : MonoBehaviour
             if(currentEnemy.HasSummon(playerInfo)) {
                 anim.SetTrigger("Summon");
                 enemiesRevived.Add(currentEnemy.GetEnemyInfo());
+                playerInfo.score++;
+                GameManager.Instance.UpdatePlayer(playerInfo);
             }
         }
         else {
