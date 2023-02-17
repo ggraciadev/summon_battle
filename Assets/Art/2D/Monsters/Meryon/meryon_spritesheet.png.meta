@@ -146,6 +146,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: meryon_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 786
+        height: 694
+      alignment: 9
+      pivot: {x: 0.5019351, y: 0.1120974}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 154f4e87dd5b06441b12476c8e95b95e
+      internalID: -2049566123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -157,6 +178,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      meryon_spritesheet_2: -2049566123
       meryon_spritesheet_1: 1930065279
       meryon_spritesheet_0: 1986128766
   spritePackingTag: 
