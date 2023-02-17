@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
             enemyInputs.Add((EnemyInputs)Random.Range(0, 4));
             buttonRenderer.Add(transform.GetChild(2).GetChild(i).GetComponent<SpriteRenderer>());
             buttonRenderer[i].sprite = buttonSprites[(int)enemyInputs[i] + 4*playerID];
-            buttonRenderer[i].color = new Color(1,1,1,0.5f);
+            buttonRenderer[i].color = new Color(1,1,1,0.2f);
         }
         StartCoroutine(SpawnAnim());
         if(transform.position.x < 0) {
@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
     void ResetCorrectInput(int pID) {
         currentInputIndex[pID] = 0;
         for(int i = 0; i < enemyInfo.enemyInputSize; ++i) {
-            buttonRenderer[i].color = new Color(1,1,1,0.5f);
+            buttonRenderer[i].color = new Color(1,1,1,0.2f);
         }
     }
 
