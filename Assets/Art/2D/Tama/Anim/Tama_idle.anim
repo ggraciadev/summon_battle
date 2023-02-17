@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Kara_idle
+  m_Name: Tama_idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -72,11 +72,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -787443100, guid: a8b80d8056c7cde408f410b5b6d6a421, type: 3}
+      value: {fileID: -1635550802, guid: c98610fd36d10f942827483b0b09fea9, type: 3}
     - time: 0.6666667
-      value: {fileID: -947340664, guid: a8b80d8056c7cde408f410b5b6d6a421, type: 3}
+      value: {fileID: -909173301, guid: c98610fd36d10f942827483b0b09fea9, type: 3}
     - time: 1.3333334
-      value: {fileID: -787443100, guid: a8b80d8056c7cde408f410b5b6d6a421, type: 3}
+      value: {fileID: -1635550802, guid: c98610fd36d10f942827483b0b09fea9, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -103,9 +103,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -787443100, guid: a8b80d8056c7cde408f410b5b6d6a421, type: 3}
-    - {fileID: -947340664, guid: a8b80d8056c7cde408f410b5b6d6a421, type: 3}
-    - {fileID: -787443100, guid: a8b80d8056c7cde408f410b5b6d6a421, type: 3}
+    - {fileID: -1635550802, guid: c98610fd36d10f942827483b0b09fea9, type: 3}
+    - {fileID: -909173301, guid: c98610fd36d10f942827483b0b09fea9, type: 3}
+    - {fileID: -1635550802, guid: c98610fd36d10f942827483b0b09fea9, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
