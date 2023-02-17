@@ -72,6 +72,10 @@ public class Enemy : MonoBehaviour
         spawner = s;
     }
 
+    public bool HasSummon(PlayerInfo pInfo) {
+        return currentInputIndex[pInfo.playerID] == enemyInfo.enemyInputSize;
+    }
+
     void ResetCorrectInput(int pID) {
         currentInputIndex[pID] = 0;
         for(int i = 0; i < enemyInfo.enemyInputSize; ++i) {
@@ -95,13 +99,14 @@ public class Enemy : MonoBehaviour
         }
         else {
             ResetCorrectInput(info.playerID);
+            return false;
         }
         if(currentInputIndex[info.playerID] == enemyInfo.enemyInputSize) {
             lightningFX.visualEffectAsset = lightning[(int)info.character];
-            lightningFX.Play();
+            lightningFX.Stop();
             StartCoroutine(RevivieAnim());
         }
-        return currentInputIndex[info.playerID] == enemyInfo.enemyInputSize;
+        return true;
     }
 
     public void SequenceComplete() {
@@ -116,6 +121,8 @@ public class Enemy : MonoBehaviour
 
     IEnumerator RevivieAnim() {
         //mandar trigger al animator
+        yield return new WaitForSeconds(0.4f);
+        lightningFX.Play();
         anim.SetTrigger("Revive");
         yield return new WaitForSeconds(0.2f);
         float animTime = 0.7f;

@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faea852eedc9f6c46b42ca591ffe176c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerClass: {fileID: 135627179709536700, guid: f961c1c9e88c79f44901937ba1992c28, type: 3}
+  playerClasses:
+  - {fileID: 135627179709536700, guid: 1938bc4ee274e0745a11c01e4ecb7d32, type: 3}
+  - {fileID: 135627179709536700, guid: f961c1c9e88c79f44901937ba1992c28, type: 3}
+  playerSpawnPoint: []
