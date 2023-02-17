@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7723199534865231666}
   - component: {fileID: 5948179046561011070}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Tama
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -787443100, guid: a8b80d8056c7cde408f410b5b6d6a421, type: 3}
+  m_Sprite: {fileID: -1635550802, guid: c98610fd36d10f942827483b0b09fea9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
