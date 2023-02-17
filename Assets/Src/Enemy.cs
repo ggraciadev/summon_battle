@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
+
 public enum EnemyInputs {UP_INPUT, DOWN_INPUT, RIGHT_INPUT, LEFT_INPUT};
 public enum EnemySpecie {SLAAIM, WHISPIKE, DOLLAHAN, HOMMUNCULUS};
 
@@ -23,19 +25,35 @@ public class Enemy : MonoBehaviour
     [SerializeField] EnemySpawner spawner;
     [SerializeField] Animator anim;
     [SerializeField] SpriteRenderer sprite;
+    [SerializeField] List<SpriteRenderer> buttonRenderer;
+    [SerializeField] GameObject buttonTemplate;
+    [SerializeField] Sprite[] buttonSprites;
     [SerializeField] bool spawned;
+    [SerializeField] VisualEffectAsset[] impacts;
+    [SerializeField] VisualEffectAsset[] lightning;
+
+    [SerializeField] VisualEffect impactFX;
+    [SerializeField] VisualEffect lightningFX;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        buttonRenderer = new List<SpriteRenderer>();
         sprite = anim.gameObject.GetComponent<SpriteRenderer>();
+        impactFX = transform.GetChild(3).GetComponent<VisualEffect>();
+        impactFX.Stop();
+        lightningFX = transform.GetChild(4).GetComponent<VisualEffect>();
+        lightningFX.Stop();
         for(int i = 0; i < enemyInfo.enemyInputSize; ++i) {
             enemyInputs.Add((EnemyInputs)Random.Range(0, 4));
+            buttonRenderer.Add(transform.GetChild(2).GetChild(i).GetComponent<SpriteRenderer>());
+            buttonRenderer[i].sprite = buttonSprites[(int)enemyInputs[i] + 4*playerID];
+            buttonRenderer[i].color = new Color(1,1,1,0.5f);
         }
         StartCoroutine(SpawnAnim());
         if(transform.position.x < 0) {
-            transform.localScale = new Vector3(-1,1,1);
+            sprite.transform.localScale = new Vector3(-1,1,1);
         }
     }
 
@@ -56,23 +74,34 @@ public class Enemy : MonoBehaviour
 
     void ResetCorrectInput(int pID) {
         currentInputIndex[pID] = 0;
+        for(int i = 0; i < enemyInfo.enemyInputSize; ++i) {
+            buttonRenderer[i].color = new Color(1,1,1,0.5f);
+        }
     }
 
-    public bool AddPlayerInput(EnemyInputs input, int pID) {
-        if(!spawned || (playerID != -1 && playerID != pID)) {
+    public bool AddPlayerInput(EnemyInputs input, PlayerInfo info) {
+        if(!spawned || (playerID != -1 && playerID != info.playerID)) {
             return false;
         }
         
-        if(enemyInputs[currentInputIndex[pID]] == input) {
-            currentInputIndex[pID]++;
+        if(enemyInputs[currentInputIndex[info.playerID]] == input) {
+            buttonRenderer[currentInputIndex[info.playerID]].color = new Color(1,1,1,1);
+            Vector3 position = buttonRenderer[currentInputIndex[info.playerID]].transform.position;
+            position.z = transform.position.z;
+            impactFX.transform.position = position;
+            impactFX.visualEffectAsset = impacts[(int)info.character];
+            impactFX.Play();
+            currentInputIndex[info.playerID]++;
         }
         else {
-            ResetCorrectInput(pID);
+            ResetCorrectInput(info.playerID);
         }
-        if(currentInputIndex[pID] == enemyInfo.enemyInputSize) {
+        if(currentInputIndex[info.playerID] == enemyInfo.enemyInputSize) {
+            lightningFX.visualEffectAsset = lightning[(int)info.character];
+            lightningFX.Play();
             StartCoroutine(RevivieAnim());
         }
-        return currentInputIndex[pID] == enemyInfo.enemyInputSize;
+        return currentInputIndex[info.playerID] == enemyInfo.enemyInputSize;
     }
 
     public void SequenceComplete() {
