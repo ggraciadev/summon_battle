@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
     }
 
     public void SendInput(EnemyInputs input) {
-        if(currentEnemy == null || stunTime > 0) { return; }
+        if(currentEnemy == null || stunTime > 0 || GameManager.Instance.GetGameStopped()) { return; }
         if(currentEnemy.AddPlayerInput(input, playerInfo)) {
             //anim de revivir
             if(currentEnemy.HasSummon(playerInfo)) {
