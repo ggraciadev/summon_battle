@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.VFX;
 
 public enum EnemyInputs {UP_INPUT, DOWN_INPUT, RIGHT_INPUT, LEFT_INPUT};
-public enum EnemySpecie {SLAAIM, WHISPIKE, DOLLAHAN, HOMMUNCULUS};
+public enum EnemySpecie {SLAAIM, RESTOREBBIT, WHISPIKE, SCHOLOAK, DOLLAHAN, MERYON, HOMMUNCULUS};
 
 [System.Serializable]
 public struct EnemyInfo {

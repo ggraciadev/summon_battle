@@ -17,6 +17,9 @@ public class GameManager : BaseGameManager<GameManager>
     }
 
     public void InitGameScene(GameObject[] playersSpawnPoint) {
+        for(int i = playerInstances.Count - 1; i >= 0; --i) {
+            Destroy(playerInstances[i].gameObject);
+        }
         playerInstances.Clear();
         
         for(int i = 0; i < playersNum; ++i) {
@@ -67,10 +70,29 @@ public class GameManager : BaseGameManager<GameManager>
         return playerInstances[id];
     }
 
+    public void UpdatePlayer(PlayerInfo info) {
+        for(int i = 0; i < playersNum; ++i) {
+            if(info.playerID == playersInfo[i].playerID) {
+                playersInfo[i] = info;
+                return;
+            }
+        }
+    }
+
     public void SetGamePlayers(List<PlayerInfo> pInfo) {
         playersInfo = pInfo;
         playersNum = playersInfo.Count;
         CalcIDs();
+    }
+
+    public PlayerInfo GetWinnerPlayerInfo() {
+        PlayerInfo info = playersInfo[0];
+        for(int i = 1; i < playersNum; ++i) {
+            if(playersInfo[i].score > info.score) {
+                info = playersInfo[i];
+            }
+        }
+        return info;
     }
 
     public void CalcIDs() {
