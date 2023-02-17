@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c8b84bc04da30c746a913fd591819540
+guid: 3abb3486ca282634a8b0d9627184147c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,84 +103,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: meryon_spritesheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 694
-        width: 786
-        height: 694
-      alignment: 9
-      pivot: {x: 0.5019351, y: 0.1120974}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71a99d6280d9897409b9f2c8592b1e02
-      internalID: 1986128766
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: meryon_spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 786
-        y: 694
-        width: 786
-        height: 694
-      alignment: 9
-      pivot: {x: 0.5019351, y: 0.1120974}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01c306fc5d1997d4a9a5603e0627b6c3
-      internalID: 1930065279
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: meryon_spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 786
-        height: 694
-      alignment: 9
-      pivot: {x: 0.5019351, y: 0.1120974}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 154f4e87dd5b06441b12476c8e95b95e
-      internalID: -2049566123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7a6b570e5cb61ff4b9acdbeb3dad912a
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      meryon_spritesheet_2: -2049566123
-      meryon_spritesheet_1: 1930065279
-      meryon_spritesheet_0: 1986128766
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
