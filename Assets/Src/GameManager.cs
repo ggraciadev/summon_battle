@@ -5,7 +5,7 @@ using WiruLib;
 
 public class GameManager : BaseGameManager<GameManager>
 { 
-    [SerializeField] GameObject playerClass;
+    [SerializeField] GameObject[] playerClass;
     [SerializeField] int playersNum;
     [SerializeField] List<Player> playerInstances;
     [SerializeField] List<PlayerInfo> playersInfo;
@@ -18,13 +18,13 @@ public class GameManager : BaseGameManager<GameManager>
             playerInstances = new List<Player>();
         }
         for(int i = 0; i < playersNum; ++i) {
-            GameObject temp = Instantiate(playerClass, playersSpawnPoint[i].transform.localPosition, Quaternion.Euler(0,0,0));
+            GameObject temp = Instantiate(playerClass[(int)playersInfo[i].character], playersSpawnPoint[i].transform.localPosition, Quaternion.Euler(0,0,0));
             playerInstances.Add(temp.GetComponent<Player>());
             playerInstances[i].SetPlayerInfo(playersInfo[i]);
         }
     }
 
-    public void SetPlayerClass(GameObject pc) {
+    public void SetPlayerClass(GameObject[] pc) {
         playerClass = pc;
     }
 
