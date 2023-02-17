@@ -10897,7 +10897,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -216.76001}
+  m_AnchoredPosition: {x: 0, y: -179.76}
   m_SizeDelta: {x: 800, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792995258
@@ -36468,7 +36468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Credits
+  m_text: 'Credits '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -37060,7 +37060,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -458}
+  m_AnchoredPosition: {x: 0, y: -421}
   m_SizeDelta: {x: 800, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1594394538
@@ -37440,7 +37440,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -332.63998}
+  m_AnchoredPosition: {x: 0, y: -295.63995}
   m_SizeDelta: {x: 800, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1620808711
@@ -37598,15 +37598,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 375c12d909c60ba42b09e2e9ebc6472c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.8233805
+      value: 4.6387434
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 375c12d909c60ba42b09e2e9ebc6472c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000019307067
+      value: 0.000001931713
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 375c12d909c60ba42b09e2e9ebc6472c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.2227151
+      value: 3.249
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 375c12d909c60ba42b09e2e9ebc6472c, type: 3}
       propertyPath: m_LocalRotation.w
