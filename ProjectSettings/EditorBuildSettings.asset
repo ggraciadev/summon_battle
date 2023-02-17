@@ -6,21 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/WiruLib/Scenes/MainMenuTemplate.unity
-    guid: 6123282000f9341489d677da4f212ae3
+    path: Assets/Scenes/MainMenu.unity
+    guid: fb98c991281f5da41a6ac6d9178eb9a3
   - enabled: 1
-    path: Assets/WiruLib/Scenes/PlaygroundTemplate.unity
-    guid: 26958a7ccda211f42b6ccf0119ad39bd
-  - enabled: 1
-    path: Assets/WiruLib/Scenes/TemplateScene2D.unity
-    guid: 693ee5d0948df204e9b852bd0319cf49
-  - enabled: 1
-    path: Assets/WiruLib/Scenes/TemplateScene3D.unity
-    guid: 428fa43f1a1b2ec4f8c3f3d268d0d8a6
-  - enabled: 1
-    path: Assets/WiruLib/Scenes/WiruLibLoadScene.unity
-    guid: 39e2e4fd690ff43438656f1a6b931697
-  - enabled: 1
-    path: Assets/Scenes/TemplateScene3D.unity
+    path: Assets/Scenes/Game.unity
     guid: 0aea0d83136b67d44b78b75bfd045204
   m_configObjects: {}

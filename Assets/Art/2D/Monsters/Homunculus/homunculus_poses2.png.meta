@@ -1,0 +1,299 @@
+fileFormatVersion: 2
+guid: 7d4247a76965d6d4f95bd08d374ec554
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 75
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: homunculus_poses2_0
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1388
+        width: 557
+        height: 416
+      alignment: 9
+      pivot: {x: 0.452566, y: 0.18244289}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5004d94a96edd74bb2ddd394e5770d0
+      internalID: 153891410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: homunculus_poses2_1
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 1369
+        width: 613
+        height: 413
+      alignment: 9
+      pivot: {x: 0.46647727, y: 0.22278482}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7496bc7320725e6458ccd187c813098b
+      internalID: 1200410828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: homunculus_poses2_2
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 1370
+        width: 569
+        height: 500
+      alignment: 9
+      pivot: {x: 0.40971217, y: 0.15946606}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23db173d40f7d9e42b3dcec5ea81cbd7
+      internalID: -32272870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: homunculus_poses2_3
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 867
+        width: 557
+        height: 417
+      alignment: 9
+      pivot: {x: 0.4540649, y: 0.17706884}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e72d86191e02064ba2fea3f50c17de7
+      internalID: -1047971781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: homunculus_poses2_4
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 867
+        width: 424
+        height: 468
+      alignment: 9
+      pivot: {x: 0.56352, y: 0.16046678}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f88bd391feff9114e8290c9c5c49919c
+      internalID: 792366287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: homunculus_poses2_5
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 865
+        width: 471
+        height: 470
+      alignment: 9
+      pivot: {x: 0.58005404, y: 0.16191173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a034c362e727564f94304cecb6fba2e
+      internalID: 1997132551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: homunculus_poses2_6
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 305
+        width: 507
+        height: 427
+      alignment: 9
+      pivot: {x: 0.6088985, y: 0.20986103}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba859e6acc5b51645a96209c92fa536e
+      internalID: -1245402349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: homunculus_poses2_7
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 305
+        width: 478
+        height: 398
+      alignment: 9
+      pivot: {x: 0.62395704, y: 0.25300643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76357d9992c7e29488e17ca9fc53ecbb
+      internalID: 168199605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 7dce57cc202149b4c868321a79c5fda1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      homunculus_poses2_3: -1047971781
+      homunculus_poses2_5: 1997132551
+      homunculus_poses2_6: -1245402349
+      homunculus_poses2_0: 153891410
+      homunculus_poses2_7: 168199605
+      homunculus_poses2_1: 1200410828
+      homunculus_poses2_4: 792366287
+      homunculus_poses2_2: -32272870
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

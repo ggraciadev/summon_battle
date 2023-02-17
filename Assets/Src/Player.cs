@@ -42,11 +42,21 @@ public class Player : MonoBehaviour
     [SerializeField] protected Enemy currentEnemy;
     [SerializeField] protected PlayerInfo playerInfo;
     [SerializeField] List<EnemyInfo> enemiesRevived;
+    [SerializeField] Animator anim;
+
+    float stunTime;
 
     // Start is called before the first frame update
     void Start()
     {
         enemiesRevived = new List<EnemyInfo>();
+        anim = GetComponentInChildren<Animator>();
+    }
+
+    void Update() {
+        if(stunTime > 0) {
+            stunTime -= Time.deltaTime;
+        }
     }
 
     public void SetPlayerInfo(PlayerInfo pInfo) {
@@ -78,11 +88,17 @@ public class Player : MonoBehaviour
     }
 
     public void SendInput(EnemyInputs input) {
-        Debug.Log("Player " + playerInfo.playerID + " input: " + input);
-        if(currentEnemy == null) { return; }
+        if(currentEnemy == null || stunTime > 0 || GameManager.Instance.GetGameStopped()) { return; }
         if(currentEnemy.AddPlayerInput(input, playerInfo)) {
             //anim de revivir
-            enemiesRevived.Add(currentEnemy.GetEnemyInfo());
+            if(currentEnemy.HasSummon(playerInfo)) {
+                anim.SetTrigger("Summon");
+                enemiesRevived.Add(currentEnemy.GetEnemyInfo());
+            }
+        }
+        else {
+            anim.SetTrigger("Fail");
+            stunTime = 1;
         }
     }
 }

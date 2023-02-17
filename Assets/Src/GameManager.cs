@@ -9,14 +9,16 @@ public class GameManager : BaseGameManager<GameManager>
     [SerializeField] int playersNum;
     [SerializeField] List<Player> playerInstances;
     [SerializeField] List<PlayerInfo> playersInfo;
+    [SerializeField] float gameTime;
+    [SerializeField] bool gameStopped;
+
+    void Awake() {
+        playerInstances = new List<Player>();
+    }
 
     public void InitGameScene(GameObject[] playersSpawnPoint) {
-        if(playerInstances != null) {
-            playerInstances.Clear();
-        }
-        else {
-            playerInstances = new List<Player>();
-        }
+        playerInstances.Clear();
+        
         for(int i = 0; i < playersNum; ++i) {
             GameObject temp = Instantiate(playerClass[(int)playersInfo[i].character], playersSpawnPoint[i].transform.localPosition, Quaternion.Euler(0,0,0));
             playerInstances.Add(temp.GetComponent<Player>());
@@ -26,6 +28,27 @@ public class GameManager : BaseGameManager<GameManager>
 
     public void SetPlayerClass(GameObject[] pc) {
         playerClass = pc;
+    }
+
+    public void SetGameStopped(bool s) {
+        gameStopped = s;
+        for(int i = 0; i < playerInstances.Count; ++i) {
+            if(playerInstances[i] != null) {
+                playerInstances[i].enabled = !s;
+            }
+        }
+    }
+
+    public void SetGameTime(float time) {
+        gameTime = time;
+    }
+
+    public float GetGameTime() {
+        return gameTime;
+    }
+
+    public bool GetGameStopped() {
+        return gameStopped;
     }
 
     public void AssignEnemyToPlayer(Enemy e, int player) {
