@@ -47,4 +47,20 @@ MonoBehaviour:
   playerClasses:
   - {fileID: 135627179709536700, guid: 1938bc4ee274e0745a11c01e4ecb7d32, type: 3}
   - {fileID: 135627179709536700, guid: f961c1c9e88c79f44901937ba1992c28, type: 3}
-  playerSpawnPoint: []
+  playerSpawnPoint:
+  - {fileID: 0}
+  - {fileID: 0}
+  timeLeft: 0
+  timeText: {fileID: 0}
+  startMenuPanel: {fileID: 0}
+  endMenuPanel: {fileID: 0}
+  canGetStartInput: 0
+  fadeMenuTime: 1
+  currentFadeMenuTime: 0
+  finishAnimObject: {fileID: 6829214599896292153, guid: fc45a53b80cf5b44f88b6bd963e9b480, type: 3}
+  winnerPoseSprite:
+  - {fileID: 2127894252, guid: c98610fd36d10f942827483b0b09fea9, type: 3}
+  - {fileID: 744880493, guid: a8b80d8056c7cde408f410b5b6d6a421, type: 3}
+  winnerConfeti:
+  - {fileID: 6436301283877269445, guid: 5ebbca9f6affe4546af64c7e58fa4836, type: 3}
+  - {fileID: 6435331944799271931, guid: edc9ea457b015524ebbdd9b23e2b3dc1, type: 3}

@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using WiruLib;
 
 public enum PlayerType {Controller, CPU};
 public enum PlayerCharacter {Tama, Kara};
@@ -13,6 +11,7 @@ public struct PlayerInfo {
     public int playerID;
     public int controllerID;
     public int score;
+    public int multi;
 
     public PlayerInfo(PlayerCharacter c, PlayerType t, int pid = -1, int cid = -1) {
         character = c;
@@ -20,6 +19,7 @@ public struct PlayerInfo {
         playerID = pid;
         controllerID = cid;
         score = 0;
+        multi = 1;
     }
 
     public void SetPlayerCharacter(PlayerCharacter pc) {
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
         else {
             gameObject.AddComponent<PlayerAIController>();
         }
-        if(playerInfo.playerID == 0) {
+        if(transform.position.x < 0) {
             transform.localScale = new Vector3(-1,1,1);
         }
         GetComponent<EnemySpawner>().SetPlayerID(playerInfo.playerID);
@@ -89,6 +89,30 @@ public class Player : MonoBehaviour
         return playerInfo.controllerID;
     }
 
+    public void DespawnEnemy() {
+        if(currentEnemy != null) {
+            Destroy(currentEnemy.gameObject);
+        }
+    }
+
+    public void SpawnEnemy() {
+        GetComponent<EnemySpawner>().SpawnEnemy();
+    }
+
+    public void SetAttackPose() {
+        anim.SetBool("AttackPose", true);
+    }
+
+    public void SetDamagePose() {
+        anim.SetBool("AttackPose", false);
+        anim.SetBool("DamagePose", true);
+    }
+
+    public void SetSpawnPose() {
+        anim.SetBool("AttackPose", false);
+        anim.SetBool("SpawnPose", true);
+    }
+
     public void SendInput(EnemyInputs input) {
         if(currentEnemy == null || stunTime > 0 || GameManager.Instance.GetGameStopped()) { return; }
         if(currentEnemy.AddPlayerInput(input, playerInfo)) {
@@ -96,6 +120,9 @@ public class Player : MonoBehaviour
             if(currentEnemy.HasSummon(playerInfo)) {
                 anim.SetTrigger("Summon");
                 enemiesRevived.Add(currentEnemy.GetEnemyInfo());
+                if(currentEnemy.GetEnemyInfo().specie == EnemySpecie.HOMMUNCULUS) {
+                    playerInfo.multi = 2;
+                }
                 playerInfo.score++;
                 GameManager.Instance.UpdatePlayer(playerInfo);
             }
