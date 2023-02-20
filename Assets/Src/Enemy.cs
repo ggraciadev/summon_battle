@@ -53,8 +53,8 @@ public class Enemy : MonoBehaviour
             buttonRenderer[i].color = new Color(1,1,1,0.2f);
         }
         StartCoroutine(SpawnAnim());
-        if(transform.position.x < 0) {
-            sprite.transform.localScale = new Vector3(-1,1,1);
+        if(transform.position.x < -1) {
+            sprite.transform.parent.localScale = new Vector3(-1,1,1);
         }
     }
 

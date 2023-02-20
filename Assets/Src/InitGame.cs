@@ -34,7 +34,7 @@ public class InitGame : MonoBehaviour
         pInfo.Add(new PlayerInfo(PlayerCharacter.Kara, PlayerType.Controller));
         pInfo.Add(new PlayerInfo(PlayerCharacter.Tama, PlayerType.Controller));
         GameManager.Instance.SetGamePlayers(pInfo);
-        GameManager.Instance.SetGameTime(10);
+        GameManager.Instance.SetGameTime(120);
         GameManager.Instance.SetGameStopped(true);
         timeText = GameObject.Find("TimeText").GetComponent<TMPro.TextMeshProUGUI>();
         timeLeft = GameManager.Instance.GetGameTime();
@@ -53,7 +53,7 @@ public class InitGame : MonoBehaviour
         InputManager.Instance.AddPlayer(0);
         endMenuPanel.alpha = 0;
         endMenuPanel.interactable = false;
-        bossSpawned = true;
+        bossSpawned = false;
         EventSystem.current.SetSelectedGameObject(GameObject.Find("PlayButton"));
         StartCoroutine(OpenStartMenu());
     }

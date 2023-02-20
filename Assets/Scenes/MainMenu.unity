@@ -521,8 +521,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 40, y: -40}
-  m_SizeDelta: {x: -80, y: -80}
+  m_AnchoredPosition: {x: 0, y: -40}
+  m_SizeDelta: {x: 0, y: -80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &194543516
 MonoBehaviour:
@@ -544,10 +544,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "GRIMORIO OF GAMES\n\nDev\n- Guillem Gr\xE0cia\n\nArt\n- Vicente Tortosa\n-
-    Macarena Vizuete\n- Ivet Macias\n\nVFX\n- Kris Mart\xEDnez\n- Ra\xFAl Jim\xE9nez\n\nMusic\n-
-    In\xE9s Mir\xE1s\n\nSpecial Thanks \n- Victor Pedre\xF1o\n- Javier Gilo\n- Se\xE1n-Lee\n-
-    Jose A. Andujar\n- Arnau \"que empape\"\n"
+  m_text: "GRIMORIO OF GAMES\n\nDev\nGuillem Gr\xE0cia\n\nArt\nVicente Tortosa\nMacarena
+    Vizuete\nIvet Macias\n\nVFX\nKris Mart\xEDnez\nRa\xFAl Jim\xE9nez\n\nMusic\nIn\xE9s
+    Mir\xE1s\n\nSpecial Thanks \nVictor Pedre\xF1o\nJavier Gilo\nSe\xE1n-Lee\nJose
+    A. Andujar\nArnau \"que empape\"\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -11132,7 +11132,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 22806254}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 3
@@ -21427,9 +21427,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4420398508505224960, guid: 1fc511925af0892448a10ab0458427fa, type: 3}
+      propertyPath: enableFPS
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420398508505224960, guid: 1fc511925af0892448a10ab0458427fa, type: 3}
       propertyPath: rewiredPrefab
       value: 
-      objectReference: {fileID: 595824197698472552, guid: 50ee8ac4548de0a4496c0f09bf0bbfc5, type: 3}
+      objectReference: {fileID: 595824197698472552, guid: b12b90fa4337cf04fa39f160c31236d1, type: 3}
     - target: {fileID: 4420398508505224961, guid: 1fc511925af0892448a10ab0458427fa, type: 3}
       propertyPath: m_Name
       value: InitSingletons
@@ -37550,7 +37554,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594394538}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

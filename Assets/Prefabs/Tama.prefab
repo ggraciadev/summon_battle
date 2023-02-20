@@ -76,8 +76,8 @@ MonoBehaviour:
   - {fileID: 3980221130605239225, guid: a7d10abb55624994bbf8fb34f27cb6da, type: 3}
   - {fileID: 3980221130605239225, guid: f970cef43b6d6e844b7521c95c10a327, type: 3}
   - {fileID: 3980221130605239225, guid: 76b433be5f8d7054e967f44aa45a6a0f, type: 3}
-  - {fileID: 3980221130605239225, guid: 2ea2def9252191e4e92f6528ac295f7d, type: 3}
   - {fileID: 3980221130605239225, guid: 6818a5c331986b84ea9b515ffd5bf731, type: 3}
+  - {fileID: 3980221130605239225, guid: 8fe42898a8829bf44ac42b05f72f0b80, type: 3}
   playerID: 0
   spawnPosition: {x: 0, y: 0, z: 0}
   isBoss: 0
