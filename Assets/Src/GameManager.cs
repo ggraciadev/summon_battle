@@ -79,16 +79,54 @@ public class GameManager : BaseGameManager<GameManager>
         }
     }
 
+    public void SpawnEnemies() {
+        foreach(Player p in playerInstances) {
+            p.SpawnEnemy();
+        }
+    }
+
+    public void DespawnEnemies() {
+        foreach(Player p in playerInstances) {
+            p.DespawnEnemy();
+        }
+    }
+
     public void SetGamePlayers(List<PlayerInfo> pInfo) {
         playersInfo = pInfo;
         playersNum = playersInfo.Count;
         CalcIDs();
     }
 
+    public void SetPlayersInCombat() {
+        foreach(Player p in playerInstances) {
+            p.SetAttackPose();
+        }
+    }
+
+    public void SetWinnerPlayerPose() {
+
+        playerInstances[GetWinnerPlayerInfo().playerID].SetSpawnPose();
+    }
+
+    public void SetLosersPlayerPose() {
+        int winnerID = GetWinnerPlayerInfo().playerID;
+        foreach(Player p in playerInstances) {
+            if(p.GetPlayerID() != winnerID) {
+                p.SetDamagePose();
+            }
+        }
+    }
+
+    public void SetFinishCombatPoses() {
+        SetWinnerPlayerPose();
+        SetLosersPlayerPose();
+    }
+
+
     public PlayerInfo GetWinnerPlayerInfo() {
         PlayerInfo info = playersInfo[0];
         for(int i = 1; i < playersNum; ++i) {
-            if(playersInfo[i].score > info.score) {
+            if(playersInfo[i].score * playersInfo[i].multi > info.score * info.multi) {
                 info = playersInfo[i];
             }
         }

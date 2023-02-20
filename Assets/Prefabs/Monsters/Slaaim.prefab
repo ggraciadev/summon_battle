@@ -383,6 +383,7 @@ MonoBehaviour:
   spawner: {fileID: 0}
   anim: {fileID: 0}
   sprite: {fileID: 0}
+  buttonsParent: {fileID: 0}
   buttonRenderer: []
   buttonTemplate: {fileID: 0}
   buttonSprites:

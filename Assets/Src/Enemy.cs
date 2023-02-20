@@ -26,7 +26,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] List<SpriteRenderer> buttonRenderer;
-    [SerializeField] GameObject buttonTemplate;
     [SerializeField] Sprite[] buttonSprites;
     [SerializeField] bool spawned;
     [SerializeField] VisualEffectAsset[] impacts;
@@ -35,10 +34,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] VisualEffect impactFX;
     [SerializeField] VisualEffect lightningFX;
 
+    [SerializeField] float timeAlive;
+
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponentInChildren<Animator>();
+        if(anim == null) anim = GetComponentInChildren<Animator>();
         buttonRenderer = new List<SpriteRenderer>();
         sprite = anim.gameObject.GetComponent<SpriteRenderer>();
         impactFX = transform.GetChild(3).GetComponent<VisualEffect>();
@@ -54,6 +55,15 @@ public class Enemy : MonoBehaviour
         StartCoroutine(SpawnAnim());
         if(transform.position.x < 0) {
             sprite.transform.localScale = new Vector3(-1,1,1);
+        }
+    }
+
+    void Update() {
+        if(enemyInfo.specie == EnemySpecie.HOMMUNCULUS) {
+            timeAlive -= Time.deltaTime;
+            if(timeAlive < 0) {
+                SequenceComplete();
+            }
         }
     }
 
@@ -111,7 +121,12 @@ public class Enemy : MonoBehaviour
 
     public void SequenceComplete() {
         spawner.SpawnEnemy();
-        Destroy(gameObject);
+        if(enemyInfo.specie == EnemySpecie.HOMMUNCULUS) {
+            Destroy(transform.parent.gameObject);
+        }
+        else {
+            Destroy(gameObject);
+        }
     }
     
     void OnSpawned() {

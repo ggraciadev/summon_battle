@@ -17,6 +17,11 @@ public class InitGame : MonoBehaviour
     [SerializeField] float currentFadeMenuTime;
     [SerializeField] GameObject finishAnimObject;
     [SerializeField] Sprite[] winnerPoseSprite;
+    [SerializeField] GameObject[] winnerConfeti;
+    [SerializeField] EnemySpawner bossSpawner;
+    [SerializeField] Animator doorAnim;
+    [SerializeField] float spawnBossTime;
+    [SerializeField] bool bossSpawned;
 
 
     // Start is called before the first frame update
@@ -26,7 +31,7 @@ public class InitGame : MonoBehaviour
         pInfo.Add(new PlayerInfo(PlayerCharacter.Kara, PlayerType.Controller));
         pInfo.Add(new PlayerInfo(PlayerCharacter.Tama, PlayerType.Controller));
         GameManager.Instance.SetGamePlayers(pInfo);
-        GameManager.Instance.SetGameTime(10);
+        GameManager.Instance.SetGameTime(120);
         GameManager.Instance.SetGameStopped(true);
 
         timeText = GameObject.Find("TimeText").GetComponent<TMPro.TextMeshProUGUI>();
@@ -45,6 +50,7 @@ public class InitGame : MonoBehaviour
         InputManager.Instance.AddPlayer(0);
         endMenuPanel.alpha = 0;
         endMenuPanel.interactable = false;
+        bossSpawned = false;
         StartCoroutine(OpenStartMenu());
     }
 
@@ -61,7 +67,12 @@ public class InitGame : MonoBehaviour
     }
 
     string GetTimeText(float time) {
-        return "" + (int)time / 60 + ":" + (int)time % 60;
+        string temp = "0" + (int)time / 60 + ":";
+        if(time % 60 < 10) {
+            temp += "0";
+        }
+        temp += time % 60;
+        return temp;
     }
 
     void Update() {
@@ -69,6 +80,11 @@ public class InitGame : MonoBehaviour
             if(timeLeft > 0) {
                 timeLeft -= Time.deltaTime;
                 timeText.SetText(GetTimeText(timeLeft));
+
+                if(!bossSpawned && timeLeft <= spawnBossTime) {
+                    StartCoroutine(SpawnBoss());
+                }
+
                 if(timeLeft < 0) {
                     timeLeft = 0;
                     GameManager.Instance.SetGameStopped(true);
@@ -93,6 +109,14 @@ public class InitGame : MonoBehaviour
         canGetStartInput = true;
     }
 
+    IEnumerator SpawnBoss() {
+        doorAnim.SetTrigger("Open");
+        bossSpawned = true;
+        yield return new WaitForSeconds(0.5f);
+        GameManager.Instance.DespawnEnemies();
+        bossSpawner.SpawnEnemy();
+    }
+
     IEnumerator CloseStartMenu() {
         canGetStartInput = false;
         while(currentFadeMenuTime > 0) {
@@ -105,7 +129,10 @@ public class InitGame : MonoBehaviour
     }
 
     IEnumerator FinishAnimCor() {
-        GameObject anim = Instantiate(finishAnimObject, Vector3.zero, Quaternion.Euler(0,0,0));
+        GameManager.Instance.DespawnEnemies();
+        GameManager.Instance.SetPlayersInCombat();
+        yield return new WaitForSeconds(2);
+        GameObject anim = Instantiate(finishAnimObject, Vector3.up * 2, Quaternion.Euler(0,0,0));
         yield return new WaitForSeconds(4);
         StartCoroutine(OpenFinishMenu());
         yield return null;
@@ -118,6 +145,16 @@ public class InitGame : MonoBehaviour
         GameObject.Find("PlayerSprite").GetComponent<Image>().sprite = winnerPoseSprite[(int)info.character];
         endMenuPanel.enabled = true;
         currentFadeMenuTime = 0;
+    
+        //GameManager.Instance.SetWinnerPlayerPose();
+
+        for(int i = 0; i < 8; ++i) {
+            Vector3 spawnPos = new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(0.0f, 5.0f), 0);
+            GameObject obj = Instantiate(winnerConfeti[(int)info.character],spawnPos, Quaternion.Euler(0,0,0));
+        }
+
+
+
         while(currentFadeMenuTime < fadeMenuTime) {
             currentFadeMenuTime = Mathf.Min(1, currentFadeMenuTime + Time.deltaTime);
             endMenuPanel.alpha = currentFadeMenuTime / fadeMenuTime;
