@@ -13758,6 +13758,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 897095998607601523, guid: f55ca3f4aa0eb8242ae39b3b83c889b9, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a081d6ec61fa9ff408ab42368ba8941a, type: 3}
+    - target: {fileID: 1758354657009154977, guid: f55ca3f4aa0eb8242ae39b3b83c889b9, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e8a401ccbde428d44bff99b02a2c27ca, type: 3}
     - target: {fileID: 3112067141902072450, guid: f55ca3f4aa0eb8242ae39b3b83c889b9, type: 3}
       propertyPath: doorAnim
       value: 
@@ -13834,6 +13842,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6539323964413117808, guid: f55ca3f4aa0eb8242ae39b3b83c889b9, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 66410cde4cd108f4b92dee518cb2b374, type: 3}
     - target: {fileID: 8792140800997451353, guid: f55ca3f4aa0eb8242ae39b3b83c889b9, type: 3}
       propertyPath: m_Name
       value: InitGame
