@@ -17,8 +17,13 @@ public class GameManager : BaseGameManager<GameManager>
     }
 
     public void InitGameScene(GameObject[] playersSpawnPoint) {
+        if(playerInstances == null) {
+            playerInstances = new List<Player>();
+        }
         for(int i = playerInstances.Count - 1; i >= 0; --i) {
-            Destroy(playerInstances[i].gameObject);
+            if(playerInstances[i] != null) {
+                Destroy(playerInstances[i].gameObject);
+            }
         }
         playerInstances.Clear();
         

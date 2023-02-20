@@ -119,6 +119,7 @@ public class Player : MonoBehaviour
             //anim de revivir
             if(currentEnemy.HasSummon(playerInfo)) {
                 anim.SetTrigger("Summon");
+                GetComponentInChildren<AudioSource>().PlayDelayed(0.2f);
                 enemiesRevived.Add(currentEnemy.GetEnemyInfo());
                 if(currentEnemy.GetEnemyInfo().specie == EnemySpecie.HOMMUNCULUS) {
                     playerInfo.multi = 2;

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using WiruLib;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class InitGame : MonoBehaviour
 {
     [SerializeField] GameObject[] playerClasses;
     [SerializeField] GameObject[] playerSpawnPoint;
     [SerializeField] float timeLeft;
+    [SerializeField] GameObject timePanel;
     [SerializeField] TMPro.TextMeshProUGUI timeText;
     [SerializeField] CanvasGroup startMenuPanel;
     [SerializeField] CanvasGroup endMenuPanel;
@@ -22,6 +24,7 @@ public class InitGame : MonoBehaviour
     [SerializeField] Animator doorAnim;
     [SerializeField] float spawnBossTime;
     [SerializeField] bool bossSpawned;
+    [SerializeField] AudioSource[] sounds;
 
 
     // Start is called before the first frame update
@@ -31,9 +34,8 @@ public class InitGame : MonoBehaviour
         pInfo.Add(new PlayerInfo(PlayerCharacter.Kara, PlayerType.Controller));
         pInfo.Add(new PlayerInfo(PlayerCharacter.Tama, PlayerType.Controller));
         GameManager.Instance.SetGamePlayers(pInfo);
-        GameManager.Instance.SetGameTime(120);
+        GameManager.Instance.SetGameTime(10);
         GameManager.Instance.SetGameStopped(true);
-
         timeText = GameObject.Find("TimeText").GetComponent<TMPro.TextMeshProUGUI>();
         timeLeft = GameManager.Instance.GetGameTime();
         timeText.SetText(GetTimeText(timeLeft));
@@ -44,26 +46,25 @@ public class InitGame : MonoBehaviour
         
         //endMenuPanel.enabled = false;
         canGetStartInput = false;
+        timePanel.SetActive(false);
     }
 
     void Start() {
         InputManager.Instance.AddPlayer(0);
         endMenuPanel.alpha = 0;
         endMenuPanel.interactable = false;
-        bossSpawned = false;
+        bossSpawned = true;
+        EventSystem.current.SetSelectedGameObject(GameObject.Find("PlayButton"));
         StartCoroutine(OpenStartMenu());
     }
 
-    void InitGameScene() {
-        //TESTING
-        
-
-        //REAL
+    public void InitGameScene() {
         GameManager.Instance.SetPlayerClass(playerClasses);
         GameManager.Instance.InitGameScene(playerSpawnPoint);
-        
+        timePanel.SetActive(true);
         timeText.enabled = true;
         GameManager.Instance.SetGameStopped(false);
+        sounds[0].Play();
     }
 
     string GetTimeText(float time) {
@@ -71,7 +72,7 @@ public class InitGame : MonoBehaviour
         if(time % 60 < 10) {
             temp += "0";
         }
-        temp += time % 60;
+        temp += (int)time % 60;
         return temp;
     }
 
@@ -92,11 +93,18 @@ public class InitGame : MonoBehaviour
                 }
             }
         }
-        else {
-            if(canGetStartInput && InputManager.Instance.GetAnyButtonDown()) {
-                StartCoroutine(CloseStartMenu());
-            }
-        }
+    }
+
+    public void CallCloseStartMenu() {
+        StartCoroutine(CloseStartMenu());
+    }
+
+    public void RetryGame() {
+        SceneManager.Instance.ChangeScene("Game");
+    }
+
+    public void OpenKickstarter() {
+        Application.OpenURL("https://www.kickstarter.com/projects/grimoriog/sword-of-the-necromancer-revenant/");
     }
 
     IEnumerator OpenStartMenu() {
@@ -119,16 +127,19 @@ public class InitGame : MonoBehaviour
 
     IEnumerator CloseStartMenu() {
         canGetStartInput = false;
+        startMenuPanel.interactable = false;
         while(currentFadeMenuTime > 0) {
             currentFadeMenuTime = Mathf.Max(0, currentFadeMenuTime - Time.deltaTime);
             startMenuPanel.alpha = currentFadeMenuTime / fadeMenuTime;
             yield return null;
         }
-        startMenuPanel.interactable = false;
+        startMenuPanel.alpha = 0;
         InitGameScene();
     }
 
     IEnumerator FinishAnimCor() {
+        sounds[0].Stop();
+        sounds[1].PlayDelayed(1.5f);
         GameManager.Instance.DespawnEnemies();
         GameManager.Instance.SetPlayersInCombat();
         yield return new WaitForSeconds(2);
@@ -140,25 +151,27 @@ public class InitGame : MonoBehaviour
 
     IEnumerator OpenFinishMenu() {
         //meter info del player ganador
+        timePanel.SetActive(false);
         PlayerInfo info = GameManager.Instance.GetWinnerPlayerInfo();
-        GameObject.Find("PlayerName").GetComponent<TMPro.TextMeshProUGUI>().SetText(info.character.ToString());
+        sounds[1].Stop();
+        sounds[2 + (int)info.character].Play();
+        GameObject.Find("PlayerScore").GetComponent<Text>().text = "Score: " + ((info.score * info.multi).ToString());
         GameObject.Find("PlayerSprite").GetComponent<Image>().sprite = winnerPoseSprite[(int)info.character];
         endMenuPanel.enabled = true;
         currentFadeMenuTime = 0;
-    
-        //GameManager.Instance.SetWinnerPlayerPose();
 
         for(int i = 0; i < 8; ++i) {
             Vector3 spawnPos = new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(0.0f, 5.0f), 0);
             GameObject obj = Instantiate(winnerConfeti[(int)info.character],spawnPos, Quaternion.Euler(0,0,0));
         }
 
-
-
         while(currentFadeMenuTime < fadeMenuTime) {
             currentFadeMenuTime = Mathf.Min(1, currentFadeMenuTime + Time.deltaTime);
             endMenuPanel.alpha = currentFadeMenuTime / fadeMenuTime;
             yield return null;
         }
+        endMenuPanel.alpha = 1;
+        endMenuPanel.interactable = true;
+        EventSystem.current.SetSelectedGameObject(GameObject.Find("KickstarterButton"));
     }
 }
